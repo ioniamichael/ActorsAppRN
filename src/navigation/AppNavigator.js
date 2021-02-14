@@ -1,11 +1,11 @@
 import React from 'react'
 import {createAppContainer, createSwitchNavigator} from "react-navigation";
 import {Splash} from "../screens/Splash";
-import {Home} from "../screens/Home";
+import {HomeNavigator} from '../navigation/HomeNavigator';
 
 const AppNavigator = createSwitchNavigator({
     Splash,
-    Home,
+    HomeNavigator
 })
 
 export default createAppContainer(AppNavigator)

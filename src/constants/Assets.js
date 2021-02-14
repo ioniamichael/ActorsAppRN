@@ -1,0 +1,1 @@
+export const BACKGROUND = require('../../src/assets/bredd.jpg');

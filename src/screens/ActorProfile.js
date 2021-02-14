@@ -11,8 +11,6 @@ export const ActorProfile = ({navigation}) => {
     const actor = navigation.getParam('actor');
     const actorProfileImage = `https://image.tmdb.org/t/p/w500${actor.profile_path}`;
 
-    console.log(actor)
-
     return (
         <ImageBackground
             resizeMode='cover'
@@ -24,14 +22,14 @@ export const ActorProfile = ({navigation}) => {
 
                 <View style={styles.topContainer}>
                     <Image style={styles.actorAvatar} source={{uri: actorProfileImage}}/>
-                    <View style={styles.actorDetailsContainer}>
-                        <Text style={styles.actorName}>{actor.name}</Text>
-                        <Text style={styles.actorDetailsText}>{POPULARITY}{actor.popularity}</Text>
-                        <Text style={styles.actorDetailsText}>{ROLE}{actor.known_for_department}</Text>
-                    </View>
+                    <Text style={styles.actorName}>{actor.name}</Text>
+                    <Text style={styles.actorDetailsText}>{POPULARITY}{actor.popularity}</Text>
+                    <Text style={styles.actorDetailsText}>{ROLE}{actor.known_for_department}</Text>
                 </View>
 
-                <ActorMoviesSwimLane moviesArray={actor.known_for}/>
+                <View style={styles.bottomContainer}>
+                    <ActorMoviesSwimLane moviesArray={actor.known_for}/>
+                </View>
 
             </ScrollView>
 
@@ -44,32 +42,32 @@ const styles = StyleSheet.create({
         width: layout.width,
         height: '100%'
     },
-    container:{
-      paddingVertical: layout.height * 0.05,
-
-    },
-    topContainer:{
-        marginHorizontal:20,
-      flexDirection: 'row',
-        height: layout.height * 0.3,
+    container: {},
+    topContainer: {
+        height: layout.height * 0.5,
         alignItems: 'center',
+        justifyContent: 'center'
     },
     actorAvatar: {
-        width: 100,
-        height: 100,
+        width: 150,
+        height: 150,
         borderRadius: 100,
     },
-    actorDetailsContainer:{
-      marginHorizontal: 20,
+    actorDetailsContainer: {
+        margin: 10,
     },
-    actorName:{
-        marginBottom: 10,
+    actorName: {
         ...layout.BASIC_TEXT_BOLD,
         fontSize: 20,
         color: colors.WHITE
     },
-    actorDetailsText:{
+    actorDetailsText: {
         ...layout.BASIC_TEXT_REGULAR,
         color: colors.WHITE,
+    },
+    bottomContainer:{
+        height: layout.height * 0.5,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
-})
+});

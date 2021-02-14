@@ -1,7 +1,8 @@
-import {FETCH_ACTORS} from "../types";
+import {FETCH_ACTORS,IS_LIST_LAYOUT} from "../types";
 
 const initialState = {
-    allActors: []
+    allActors: [],
+    isListLayout: false
 }
 
 export const actorReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ export const actorReducer = (state = initialState, action) => {
             return {
                 ...state,
                 allActors: action.payload
+            };
+        case IS_LIST_LAYOUT:
+            return{
+                ...state,
+                isListLayout: action.payload
             }
     }
     return state;

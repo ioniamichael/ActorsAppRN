@@ -1,25 +1,26 @@
 import React from 'react';
 import {StyleSheet, View, Text, FlatList, ImageBackground} from "react-native";
-import layout from '../constants/Layout'
-import colors from '../constants/Colors'
+import layout from '../constants/Layout';
+import colors from '../constants/Colors';
+import {ACTOR_PROFILE_SCREEN_TITLE} from '../constants/Strings';
 
 export const ActorMoviesSwimLane = ({moviesArray}) => {
 
     return (
 
-        <View style={styles.moviesList}>
+        <View style={styles.container}>
 
-            <Text style={styles.title}>Played in Moves and shows: </Text>
+            <Text style={styles.title}>{ACTOR_PROFILE_SCREEN_TITLE}</Text>
 
             <FlatList
-                pagingEnabled={true}
+                showsHorizontalScrollIndicator={false}
                 horizontal
                 data={moviesArray}
                 keyExtractor={movie => movie.id.toString()}
                 renderItem={({item}) => {
                     return (
-
                         <ImageBackground
+                            resizeMode='cover'
                             source={{uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`}}
                             style={styles.background}>
                         </ImageBackground>
@@ -32,17 +33,21 @@ export const ActorMoviesSwimLane = ({moviesArray}) => {
 
 const styles = StyleSheet.create({
     title: {
+        marginVertical:20,
         ...layout.BASIC_TEXT_BOLD,
         color: colors.WHITE,
     },
-    moviesList: {
-        height: layout.height * 0.7,
+    container: {
+        marginVertical:20,
         justifyContent: 'center',
         alignItems: 'center',
     },
     background: {
-        width: layout.width -50,
-        margin: 10,
-        height: layout.height * 0.6
-    }
-})
+        marginEnd: 10,
+        marginStart:10,
+        overflow: 'hidden',
+        elevation: 5,
+        borderRadius: 10,
+        width: layout.width * 0.4,
+    },
+});

@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         borderRadius: 100,
         backgroundColor: colors.SEARCH_BACKGROUND,
-        width: layout.width - 40,
+        width: layout.width * 0.70,
         height: layout.height * 0.06,
         top: layout.height * 0.05,
         borderWidth: 1,

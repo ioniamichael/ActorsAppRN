@@ -1,4 +1,4 @@
-import {FETCH_ACTORS} from "../types";
+import {FETCH_ACTORS, IS_LIST_LAYOUT} from "../types";
 import apiService from "../../services/apiService";
 
 export const fetchActors = (searchTerm) => (dispatch) => new Promise(async (resolve, reject) => {
@@ -17,4 +17,11 @@ export const fetchActors = (searchTerm) => (dispatch) => new Promise(async (reso
     }catch (e) {
         reject(e)
     }
-})
+});
+
+export const changeHomeScreenLayout = (isListLayout) => (dispatch) => {
+    dispatch({
+        type: IS_LIST_LAYOUT,
+        payload: isListLayout
+    })
+} ;

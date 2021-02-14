@@ -3,10 +3,9 @@ import {StyleSheet, Image, TouchableOpacity, FlatList, Text, ImageBackground} fr
 import layout from '../constants/Layout';
 import colors from "../constants/Colors";
 
-export const BigSwimLane = ({navigation, data, onTaskPressed}) => {
+export const GridLayout = ({navigation, data, onTaskPressed}) => {
 
     return (
-
         <FlatList
             data={data}
             horizontal
@@ -33,7 +32,7 @@ export const BigSwimLane = ({navigation, data, onTaskPressed}) => {
             }}
         />
     )
-}
+};
 
 const styles = StyleSheet.create({
     container: {},

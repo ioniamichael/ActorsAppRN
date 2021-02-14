@@ -19,7 +19,7 @@ export const Splash = ({navigation}) => {
                 navigation.navigate(HOME);
             }, 2000);
         } catch (e) {
-            console.log(e);
+            alert(e);
         }
     };
 
